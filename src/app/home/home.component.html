@@ -1,0 +1,15 @@
+<div class="container" style="width:100%;height:100%;text-align:center;padding-top:10%">
+  <form #searchForm="ngForm" (ngSubmit)="search()" (click)="searchResults=null">
+      <img src="../../assets/main_logo.png" style="margin-bottom: 1%" >
+      <input [value]="query" (input)="getSuggestions($event.target.value)" 
+      class="card col-lg-6 col-md-6 col-sm-12 search-box" spellcheck="false" 
+      autocomplete="off" maxlength="2048">
+      <ul class="list-group" *ngIf="searchResults!=null">
+        <li class="list-group-item col-lg-6 col-md-6 col-sm-12 search-suggestion-box" 
+        *ngFor="let result of searchResults" (click)="query=result._source.address; search(query)">
+          {{result._source.address}}
+        </li>
+      </ul> 
+      <button class="btn btn-primary" style="margin-top: 2%;" type="submit" (submit)="search()">Search</button>
+  </form>
+</div>

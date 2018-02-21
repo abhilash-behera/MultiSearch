@@ -1,0 +1,9 @@
+<ul class="list-group" *ngIf="searchResults!=null">
+  <li class="list-group-item" *ngFor="let result of searchResults">
+    {{result._source.address}}
+  </li>
+</ul>
+
+<div *ngIf="!resultsFound">
+  <p style="font-size:2em"><strong>Sorry. No results found for {{query}}</strong></p>
+</div>

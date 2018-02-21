@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <!-- Navbar links -->
+  <!-- <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+  </div> -->
+</nav> 
+<div class="container">
+  <div class="jumbotron">
+    <img src="../../assets/main_logo.png">
+    <p style="font-size:2em">Admin Panel</p>
+  </div>
+
+  <form class="form-group">
+    <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Drag and drop a file">
+    <textarea class=""></textarea>
+  </form>
+</div>
+<script>
+  function readUrl(input) {
+  
+  if (input.files && input.files[0]) {
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      let imgData = e.target.result;
+      let imgName = input.files[0].name;
+      input.setAttribute("data-title", imgName);
+      console.log(e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+
+}
+</script>
